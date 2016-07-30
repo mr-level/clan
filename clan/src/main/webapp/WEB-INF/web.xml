@@ -1,0 +1,40 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<web-app>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:applicationContext.xml</param-value>
+	</context-param>
+	
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+  
+	<filter>
+	    <filter-name>jersey</filter-name>
+	    <filter-class>org.glassfish.jersey.servlet.ServletContainer</filter-class>
+		<init-param>
+	       	<param-name>jersey.config.server.provider.packages</param-name>
+      		<param-value>cn.level</param-value>
+		</init-param>
+		<init-param>
+		    <param-name>jersey.config.server.provider.classnames</param-name>
+		    <param-value>org.glassfish.jersey.server.mvc.jsp.JspMvcFeature</param-value>
+		</init-param>
+		<init-param>
+		    <param-name>jersey.config.server.mvc.templateBasePath.jsp</param-name>
+		    <param-value>/</param-value>
+		</init-param>
+		<init-param>
+		   <param-name>jersey.config.servlet.filter.staticContentRegex</param-name>
+		   <param-value>/.*jsp</param-value>
+		</init-param>
+	</filter>
+	
+	<filter-mapping>
+	    <filter-name>jersey</filter-name>
+	    <url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+</web-app>
