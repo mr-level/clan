@@ -18,7 +18,7 @@
 		);
 	</insert>
 	
-	<select id="selectUserByUserId" resultMap="Comment">
+	<select id="selectUserByUserId" resultMap="User">
 		SELECT
 			user_id,
 			user_name
