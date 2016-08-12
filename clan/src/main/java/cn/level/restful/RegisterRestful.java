@@ -30,17 +30,19 @@ public class RegisterRestful extends Restful{
 			
 			User user = new User();
 			user.setUserName("ÀîËÄ");
-			System.out.println("[[[[[[[[[[[[");
-			System.out.println(userService.getClass().getSimpleName());
+			
 			userService.add(user);
-			System.out.println("[[[[[[[[[[[[");
+			
 			response = getResponse(HttpStatus.OK);
+			
 		}catch(Throwable e) {
 			
 			log.error(e.getMessage(), e);
 			response = getResponse(HttpStatus.INTERNAL_ERROR);
 			
 		}
+		
 		return response;
+		
 	}
 }
