@@ -13,11 +13,13 @@
 	<insert id="insert" statementType="PREPARED">
 		INSERT INTO clansman (
 			name,
-			profile
+			profile,
+			create_time
 		)
 		VALUES (
 			#{name},
-			#{profile}
+			#{profile},
+			#{createTime}
 		)
 	</insert>
 	

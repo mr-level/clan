@@ -10,7 +10,8 @@ public class Clansman {
 	public Integer parentId;
 	public Integer lft;
 	public Integer rgt;
-
+	public Long createTime;
+	
 	public Clansman(){}
 	
 	public Clansman(Integer id) {
@@ -26,6 +27,7 @@ public class Clansman {
 		Clansman clansman = new Clansman();
 		clansman.setName(name);
 		clansman.setProfile(profile);
+		clansman.setCreateTime(System.currentTimeMillis());
 		
 		return clansman;
 		
@@ -79,4 +81,12 @@ public class Clansman {
 		this.rgt = rgt;
 	}
 	
+	public Long getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Long createTime) {
+		this.createTime = createTime;
+	}
+
 }

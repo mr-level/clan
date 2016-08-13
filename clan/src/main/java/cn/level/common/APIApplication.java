@@ -1,0 +1,16 @@
+package cn.level.common;
+
+import org.glassfish.jersey.server.ResourceConfig;
+
+public class APIApplication extends ResourceConfig {
+    public APIApplication() {
+        //加载Resource
+        register(HelloResource.class);
+
+        //注册数据转换器
+        register(JacksonJsonProvider.class);
+
+        // Logging.
+        register(LoggingFilter.class);
+    }
+}
