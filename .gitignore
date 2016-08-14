@@ -10,7 +10,16 @@
 .settings/
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-pom.properties
+*.classpath
+*.gitignore
 *.project
+<<<<<<< HEAD
 *.classpath
 target/
+=======
+*.settings
+pom.properties
+
+target/
+
+>>>>>>> 88e0faf2576dc53b8d5fac5697fd06f372ef9208
