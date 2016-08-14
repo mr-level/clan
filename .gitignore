@@ -13,3 +13,4 @@ hs_err_pid*
 pom.properties
 *.project
 *.classpath
+target/
