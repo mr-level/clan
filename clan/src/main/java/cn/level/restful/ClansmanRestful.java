@@ -25,7 +25,7 @@ public class ClansmanRestful extends Restful {
 	ClansmanService clansmanService;
 	
 	@POST
-	@Path("/clan/clansman")
+	@Path("/clansman")
 	public Response add(MultivaluedMap<String, String> fieldSet) {
 		
 		Response response = null;
@@ -49,7 +49,7 @@ public class ClansmanRestful extends Restful {
 	}
 	
 	@GET
-	@Path("/clan/clansman/{id}")
+	@Path("/clansman/{id}")
 	public Response findClansman(@PathParam("id") Integer id){
 		
 		Response response = null;
@@ -74,7 +74,7 @@ public class ClansmanRestful extends Restful {
 	}
 	
 	@GET
-	@Path("/clan/clansman/{id}/list")
+	@Path("/clansman/{id}/list")
 	public Response findClansmanList(@PathParam("id") Integer id) {
 		
 		Response response = null;
@@ -101,7 +101,7 @@ public class ClansmanRestful extends Restful {
 	}
 	
 	@GET
-	@Path("/clan/clansman/{id}/elder-list")
+	@Path("/clansman/{id}/elder-list")
 	public Response findEldersByOrderNum(@PathParam("id") Integer id) {
 		
 		Response response = null;
@@ -128,7 +128,7 @@ public class ClansmanRestful extends Restful {
 	}
 	
 	@PUT
-	@Path("/clan/clansman/{id}")
+	@Path("/clansman/{id}")
 	public Response updateInfoById(MultivaluedMap<String, String> fieldSet) {
 		
 		Response response = null;
@@ -152,7 +152,7 @@ public class ClansmanRestful extends Restful {
 	}
 	
 	@DELETE
-	@Path("/clan/clansman/{id}")
+	@Path("/clansman/{id}")
 	public Response removeClansman(@PathParam("id") Integer id) {
 		
 		Response response = null;

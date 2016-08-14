@@ -2,6 +2,8 @@ package cn.level.restful;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 import org.glassfish.jersey.server.mvc.Viewable;
 
@@ -9,8 +11,10 @@ import org.glassfish.jersey.server.mvc.Viewable;
 public class Hello {
 	
 	@GET
-	@Path("/clan/index")
+	@Path("/index")
+	@Produces(MediaType.TEXT_HTML)
 	public Viewable index() {
-		return new Viewable("/pages/index.html", null);   
+			 Viewable viewable = new Viewable("/index", null);
+		return viewable;   
 	}
 }
