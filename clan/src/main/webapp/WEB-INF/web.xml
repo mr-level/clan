@@ -2,6 +2,7 @@
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 <web-app>
+
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:applicationContext.xml</param-value>
@@ -24,11 +25,11 @@
 		</init-param>
 		<init-param>
 		    <param-name>jersey.config.server.mvc.templateBasePath.jsp</param-name>
-		    <param-value>/</param-value>
+		    <param-value>/WEB-INF/pages</param-value>
 		</init-param>
 		<init-param>
 		   <param-name>jersey.config.servlet.filter.staticContentRegex</param-name>
-		   <param-value>/.*jsp</param-value>
+		   <param-value>/resource/.*</param-value>
 		</init-param>
 	</filter>
 	

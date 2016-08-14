@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.level.entity.Clansman">
+
+	<resultMap type="cn.level.entity.Clansman" id="clansman">
+		<id property="id" column="id"/>
+		<result property="name" column="name" />
+		<result property="profile" column="profile" />
+		<result property="lft" column="lft" />
+		<result property="rgt" column="rgt"/>
+	</resultMap>
+
+	<insert id="insert" statementType="PREPARED">
+		INSERT INTO clansman (
+			name,
+			profile,
+			create_time
+		)
+		VALUES (
+			#{name},
+			#{profile},
+			#{createTime}
+		)
+	</insert>
+	
+	<select id="selectOneById" resultMap="clansman">
+		SELECT 
+			id,
+			name,
+			profile
+		FROM 
+			clansman
+		WHERE
+			id = #{id}
+	</select>
+	
+	<select id="selectOffspringByOrderNum" resultMap="clansman">
+		SELECT
+			id,
+			name,
+			profile
+		FROM
+			clansman
+		WHERE
+			lft BETWEEN #{lft} AND #{rgt}
+		ORDER BY
+			lft
+		ASC
+	</select>
+	
+	<select id="selectEldersByOrderNum" resultMap="clansman">
+		SELECT 
+			id,
+			name,
+			profile
+		FROM
+			clansman
+		WHERE
+			lft &lt; #{lft}
+			AND
+			rgt &gt; #{rgt}
+		ORDER BY
+			lft
+		ASC
+	</select>
+	
+	<update id="resetLftOrderNum">
+		UPDATE
+			clansman
+		SET
+			lft = lft + 2
+		WHERE 
+			lft &gt; #{lft}
+	</update>
+	
+	<update id="resetRgtOrderNum">
+		UPDATE
+			clansmane
+		SET
+			rgt = rgt + 2
+		WHERE
+			rgt &gt; #{rgt}
+	</update>
+	
+	<update id="updateInfoById">
+		UPDATE
+			clansman
+		SET
+		<if test="name != null" >
+			name = #{name},
+		</if>
+		<if test="profile != null" >
+			profile = #{profile},
+		</if>
+			id = id
+		WHERE
+			id = #{id}
+	</update>
+	
+	<delete id="deleteClansmanById">
+		DELETE FROM clansman where id = #{id}
+	</delete>
+</mapper>
